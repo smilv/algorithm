@@ -10,9 +10,17 @@
  */
 function day(start, end) {
     let startTime = Date.parse(start);
-    let endTiem = Date.parse(end);
+    let endTiem = Date.parse(end) + 60 * 60 * 24 * 1000;
     let diffDay = (endTiem - startTime) / 60 / 60 / 24 / 1000;
-    console.log(diffDay);
+    let result = 0;
+    for (let i = 0; i < diffDay; i++) {
+        let day = new Date(startTime).getDay();
+        if (day == 6 || day == 0) {
+            result++;
+        }
+        startTime += 60 * 60 * 24 * 1000;
+    }
+    return result;
 }
 
-day("2020-3-2", "2020-3-4");
+day("2020-3-2", "2020-3-18");
