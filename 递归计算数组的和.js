@@ -8,9 +8,11 @@
  * @param {*} array 当前数组
  */
 function sum(total, array) {
+    //临界条件
     if (array.length == 0) {
         return total;
     }
+    //递归体
     return sum(total + array[0], array.slice(1));
 }
 
