@@ -3,7 +3,7 @@
  * 数组去重
  */
 
-var arr = [1, 2, 1, 2, 3];
+var arr = [1, 2, 1, 2, 3, 6, 3, 8];
 
 function unique(arr) {
     for (var i = 0; i < arr.length; i++) {
