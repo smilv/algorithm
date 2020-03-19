@@ -13,7 +13,7 @@ var vdom = {
     children: [
         {
             type: "h1",
-            props: {
+            attrs: {
                 className: "h1-1",
                 style: "background:#f3f3f3"
             },
@@ -21,7 +21,7 @@ var vdom = {
             children: [
                 {
                     type: "h3",
-                    props: {
+                    attrs: {
                         className: "h1-2",
                         style: "background:#f3f3f3"
                     },
@@ -32,7 +32,7 @@ var vdom = {
         },
         {
             type: "h2",
-            props: {
+            attrs: {
                 className: "h2-1",
                 style: "background:#f3f3f3"
             },
@@ -44,8 +44,8 @@ var vdom = {
 
 function render(vdom) {
     let dom = document.createElement(vdom.type);
-    for (name in vdom.props) {
-        dom.setAttribute(name, vdom.props[name]);
+    for (name in vdom.attrs) {
+        dom.setAttribute(name, vdom.attrs[name]);
     }
     dom.innerText = vdom.content;
     if (vdom.children.length > 0) {
