@@ -6,7 +6,7 @@
 var vdom = {
     type: "div",
     props: {
-        className: "div-1",
+        class: "div-1",
         style: "width:100px"
     },
     content: "1",
@@ -14,7 +14,7 @@ var vdom = {
         {
             type: "h1",
             attrs: {
-                className: "h1-1",
+                class: "h1-1",
                 style: "background:#f3f3f3"
             },
             content: "1-1",
@@ -22,7 +22,7 @@ var vdom = {
                 {
                     type: "h3",
                     attrs: {
-                        className: "h1-2",
+                        class: "h1-2",
                         style: "background:#f3f3f3"
                     },
                     content: "1-1",
@@ -33,7 +33,7 @@ var vdom = {
         {
             type: "h2",
             attrs: {
-                className: "h2-1",
+                class: "h2-1",
                 style: "background:#f3f3f3"
             },
             content: "1-2",
