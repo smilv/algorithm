@@ -4,6 +4,7 @@
  */
 
 /**
+ * 通过冒泡排序衍生
  * @param {*} arr 待排序数组
  * @param {*} start 开始索引
  * @param {*} end 结束索引
@@ -23,6 +24,7 @@ function quickSort(arr, start, end) {
         //找到比基数小的，互换位置
         if (right > left) {
             let temp = arr[right];
+            9;
             arr[right] = arr[left];
             arr[left] = temp;
         }
@@ -41,13 +43,38 @@ function quickSort(arr, start, end) {
     quickSort(arr, right + 1, end);
 }
 
-// const arr = [];
-// for (let i = 0; i < 10; i++) {
-//     arr.push(Math.floor(Math.random() * 100));
-// }
+const arr = [];
+for (let i = 0; i < 10; i++) {
+    arr.push(Math.floor(Math.random() * 100));
+}
 
-const arr = [2, 3, 2, 4, 5];
+// const arr = [3];
 const start = 0;
 const end = arr.length - 1;
 
-quickSort(arr, start, end);
+// quickSort(arr, start, end);
+
+console.log(quickSort2(arr));
+
+/**
+ * 通过两个数组存放处理，进行合并
+ * @param {*} arr 待排序数组
+ */
+function quickSort2(arr) {
+    //小于一项时，返回当前数组供递归合并使用
+    if (arr.length < 1) {
+        return arr;
+    }
+    let base = arr[Math.ceil(arr.length / 2) - 1]; //取中间的索引
+    let left = [];
+    let right = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < base) {
+            left.push(arr[i]);
+        }
+        if (arr[i] > base) {
+            right.push(arr[i]);
+        }
+    }
+    return quickSort2(left).concat([base], quickSort2(right));
+}
