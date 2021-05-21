@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2021-05-21 21:35:07
  * @LastEditors: bin
- * @LastEditTime: 2021-05-21 23:01:24
+ * @LastEditTime: 2021-05-21 23:21:33
  */
 
 /*求最大公约数方法：辗转相除法
