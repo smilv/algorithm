@@ -3,7 +3,7 @@
  * @Autor: zhaobin <zhaobin@googutspirits.com>
  * @Date: 2021-07-06 15:14:51
  * @LastEditors: zhaobin
- * @LastEditTime: 2021-07-06 17:11:57
+ * @LastEditTime: 2021-07-09 11:16:53
  */
 
 const data = [
@@ -48,20 +48,19 @@ const res = {
 function deepFirstSearch(node) {
   const result = [];
   node.forEach(element => {
-    let stack = [];
-    const map = function(item) {
-      for (let key in item) {
-        if (item.hasOwnProperty(key)) {
-          stack.push(key);
-          if (Object.prototype.toString.call(item[key]) === "[object Object]") {
-            map(item[key]);
-          }
-          let obj = { sku: element.sku, place: stack[0], companyType: stack.pop(), qty: item[key] };
-          if (stack.length !== 0) {
-            result.push(obj);
-          }
+    const map = function(item, stack = []) {
+      Object.keys(item).forEach(key => {
+        stack.push(key);
+        if (Object.prototype.toString.call(item[key]) === "[object Object]") {
+          map(item[key], stack);
         }
-      }
+        if (stack.length > 1) {
+          let obj = { sku: element.sku, place: stack[0], companyType: stack.pop(), qty: item[key] };
+          item[key] !== 0 && result.push(obj);
+        } else {
+          stack.pop();
+        }
+      });
     };
     map(element.stock_map);
 
