@@ -3,7 +3,7 @@
  * @Author: zhaobin
  * @Date: 2023-11-16 14:35:21
  * @LastEditors: zhaobin
- * @LastEditTime: 2023-11-16 17:56:41
+ * @LastEditTime: 2023-11-17 14:51:27
  */
 
 /**
@@ -14,7 +14,7 @@
 const arr = [1, 2, 3];
 
 //查找指定元素的索引
-function test(arr, n) {
+function binarySearch(arr, n) {
   let firstIndex = 0;
   let lastIndex = arr.length - 1;
   let middleIndex = Math.floor((lastIndex + firstIndex) / 2);
@@ -29,4 +29,4 @@ function test(arr, n) {
   return arr[middleIndex] === n ? middleIndex : -1;
 }
 
-test(arr, 5);
+binarySearch(arr, 5);
