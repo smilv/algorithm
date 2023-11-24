@@ -3,12 +3,13 @@
  * @Author: zhaobin
  * @Date: 2023-11-21 15:46:51
  * @LastEditors: zhaobin
- * @LastEditTime: 2023-11-21 16:26:40
+ * @LastEditTime: 2023-11-22 15:32:23
  */
 
 const arr = [5, 4, 3, 2, 1];
 
 /*
+https://blog.csdn.net/z914020826/article/details/132910829
 复杂度 O(n^2)
 4,3,2,1,5  第1次后，确认5的位置
 3,2,1,4,5  第2次后，确认4的位置
