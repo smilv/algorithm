@@ -16,19 +16,36 @@
 const arr = [1, 2, 3];
 
 //查找指定元素的索引
-function binarySearch(arr, n) {
-  let firstIndex = 0;
-  let lastIndex = arr.length - 1;
-  let middleIndex = Math.floor((lastIndex + firstIndex) / 2);
-  while (arr[middleIndex] !== n && firstIndex <= lastIndex) {
-    if (arr[middleIndex] < n) {
-      firstIndex = middleIndex + 1;
+function binarySearch(arr, target) {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (arr[mid] === target) {
+      return mid; // 找到目标元素，返回索引
+    } else if (arr[mid] < target) {
+      left = mid + 1; // 在右半部分继续查找
     } else {
-      lastIndex = middleIndex - 1;
+      right = mid - 1; // 在左半部分继续查找
     }
-    middleIndex = Math.floor((lastIndex + firstIndex) / 2);
   }
-  return arr[middleIndex] === n ? middleIndex : -1;
+  return -1; // 如果未找到目标元素，返回 -1
+}
+
+//递归写法
+function binarySearch(arr, target, left = 0, right = arr.length - 1) {
+  if (left > right) {
+    return -1; // 如果未找到目标元素，返回 -1
+  }
+
+  const mid = Math.floor((left + right) / 2);
+  if (arr[mid] === target) {
+    return mid; // 找到目标元素，返回索引
+  } else if (arr[mid] < target) {
+    return binarySearch(arr, target, mid + 1, right); // 在右半部分继续查找
+  } else {
+    return binarySearch(arr, target, left, mid - 1); // 在左半部分继续查找
+  }
 }
 
 binarySearch(arr, 5);
