@@ -49,8 +49,23 @@ class NodeList {
     return currentNode;
   }
   // 在指定元素后向单链表中插入元素
-  insert(element, item) {}
-  remove(item) {} // 在单链表中删除一个节点
+  insert(element, item) {
+    let currentNode = this.find(item);
+    if (currentNode) {
+      let newNode = new Node(element);
+      newNode.next = currentNode.next;
+      currentNode.next = newNode;
+      this.size++;
+    }
+  }
+  // 在单链表中删除一个节点
+  remove(item) {
+    let currentNode = this.find(item);
+    if (currentNode) {
+      currentNode.next = currentNode.next.next;
+      this.size--;
+    }
+  }
   // 在单链表的尾部添加元素
   append(item) {
     let lastNode = this.findLast();
